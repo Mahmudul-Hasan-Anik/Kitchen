@@ -1,13 +1,200 @@
-body {
+
+*{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family:Arial, Helvetica, sans-serif
+}
+ul{
+  padding-inline-start: 0 !important;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body{
+   background-color: #f3f5f9;
+}
+
+.wrapper{
+  display: flex;
+  position: relative;
+}
+
+.sidebar{
+  width: 100px;
+  height: 100%;
+  text-align: center;
+  background: white;
+  padding: 30px 0px;
+  position: fixed;
+}
+
+ .sidebar h2{
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.sidebar ul li{
+  padding: 15px 5px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}    
+
+.wrapper, .sidebar ul li a{
+  color: gray;
+  display: block;
+  text-decoration: none;
+}
+
+.wrapper, .sidebar ul li a .fas{
+  width: 25px;
+}
+
+.wrapper, .sidebar ul li:hover{
+  background-color: #556F5D;
+}
+    
+.wrapper, .sidebar ul li:hover a{
+  color: #fff;
+  text-decoration: none;
+}
+.social_media{
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.social_media a{
+  display: block;
+  width: 60px;
+  height: 40px;
+  text-align: center;
+  margin: 0 5px;
+  color: gray;
+  text-decoration: none;
+}
+.social_media i{
+  color: gray;
+  font-size: 15px;
+}
+.sidebar i{
+  font-size: 20px;
+  display: block;
+  margin: 7px 10px;
+}
+
+/* ----------- MAIN CONTENT CSS -------- */
+.main_content{
+  width: 71%;
+  margin-left: 120px;
+  padding-top: 20px;
+}
+
+.main_cart{
+  display: flex;
+  justify-content:flex-end;
+  position: relative;
+}
+
+.cart_sidebar{
+  width: 300px;
+  height: 100%;
+  background: white;
+  padding: 20px 15px;
+  position: fixed;
+}
+.cart_card{
+  width: 100%;
+  height: 60px;
+  background-color: rgb(240, 240, 240);
+  padding: 10px;
+  border-radius: 6px;
+}
+.auth_main{
+  width: 1000px;
+  height: 600px;
+  box-shadow: 1px 1px 20px 1px gray;
+  background-color: white;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+.auth_main-left{
+  margin: 0 auto;
+  width: 50%;
+  height: 100%;
+  border-right: 1px solid #688F4E;
+  
+  padding: 50px 70px;
+}
+.auth_main-left h2{
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  letter-spacing: 0.2em;
+  color: #1B262C;
+}
+.auth_main-left button{
+  width: 100%;
+  background-color: #688F4E;
+  border: none;
+}
+.auth_main-left button:hover{
+  background-color: #688F4E !important;
+  color: black;
+}
+.auth_main-right{
+  margin: 0 auto;
+  padding: 50px 70px;
+  line-height: 30px;
+}
+.auth_main-right h2{
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  letter-spacing: 0.2em;
+  color: #1B262C;
+}
+.auth_main-right button{
+  width: 100%;
+  background-color: #688F4E;
+  border: none;
+}
+.auth_main-right button:hover{
+  background-color: #688F4E !important;
+  color: black;
+}
+.home_item a{
+  color: black;
+  text-decoration: none;
+}
+.item_card-design{
+  margin: 0px 20px ;
+  background-color: white;
+  border-radius: 0px 0px 15px 15px;
+  padding-left: none !important;
+  padding-right: none !important;
+}
+.item_card-content{
+  padding: 10px 20px;
+}
+.details_content{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 275px;
+  padding: 0px 20px;
+}
+.item_card-footer button{
+  font-size: 17px;
+  margin: 20px 0px;
+}
+
+.cart_card-show{
+  margin-top: 20px ;
+  padding-left: 5px;
 }
