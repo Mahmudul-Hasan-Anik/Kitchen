@@ -9,6 +9,10 @@ const Cart = () => {
   const {user} = state
   const {cart:{cartItems}} = state2
 
+  const handleRemoveCart = (id)=>{
+    console.log(id)
+  }
+
 
   return (
     <div className='main_cart'>
@@ -64,7 +68,7 @@ const Cart = () => {
                         <p>${item.price}.00</p>
                     </Col>
                     <Col md={4} lg={4}>
-                        <p className='cart_card-button'><i class="fa-solid fa-trash-can"></i></p>
+                        <p className='cart_card-button'><i class="fa-solid fa-trash-can" onClick={()=>handleRemoveCart(item._id)}></i></p>
                     </Col>
                     </>
                 </Row>

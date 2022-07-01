@@ -14,10 +14,13 @@ const Menu = () => {
 
   const [values, setValues] = useState([])
   const [catagory, setCatagory] = useState([])
+  const [active, setActive] = useState('')
+  
 
   const handleAll = async()=>{
     const {data} = await axios.get('/menu/api/items/all')
     setValues(data)
+    
   }
 
   useEffect(()=>{
@@ -30,7 +33,13 @@ const Menu = () => {
 //============ CATAGORY BASE DATA ===========
   const handleCatagory = async(id)=>{
     const {data} = await axios.get(`/menu/api/items/catagory/${id}`)
-    setValues(data)    
+    setValues(data) 
+
+    // if(values[0].catagory !== id){
+    //   setActive('')
+    // }else if(values[0].catagory === id){
+    //   setActive('active')
+    // }
   }
 //============= SHOW CATAGORY==============
   useEffect(()=>{
@@ -68,7 +77,7 @@ const Menu = () => {
               <p>All</p>
             </li>
           {catagory.map((items)=>(
-            <li onClick={()=>handleCatagory(items._id)} >
+            <li onClick={()=>handleCatagory(items._id)} className={ values[0].catagory === items._id ? 'active' : '' }>
               <i class={items.catagoryIcon}></i>
               <p>{items.catagoryName}</p>
             </li>
