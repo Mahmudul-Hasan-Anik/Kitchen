@@ -42,6 +42,9 @@ ItemRouter.post('/items', upload.single('image'), (req, res)=>{
     const URL = req.protocol + '://' + req.get('host')
     const fileUrl = URL + "/upload/" + req.file.filename;
 
+    console.log(req.body)
+    console.log(req.file)
+
     const newItem = new Item({
         title: req.body.title,
         price: req.body.price,
@@ -75,6 +78,17 @@ ItemRouter.get('/items/:id', (req,res)=>{
       res.send(err)
     }
   })
+})
+
+ItemRouter.get('/items/catagory/:id', (req,res)=>{
+   Item.find({catagory: req.params.id}, (err,docs)=>{
+    if(docs){
+      res.send(docs)
+    }else((err)=>{
+      res.status(400).json({msg:'Catagory Not Found'})
+    })
+  })
+
 })
 
 

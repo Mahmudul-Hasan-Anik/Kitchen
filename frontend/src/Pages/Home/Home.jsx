@@ -17,8 +17,7 @@ const Home = () => {
 
     const existingItem = cartItems.find((card)=> card._id === item._id)
     const quantity = existingItem ? existingItem.quantity + 1 : 1
-  
-    // console.log('dfds',existingItem)
+
     dispatch2({
       type: 'ADD_CART_ITEMS',
       payload: {...item, quantity}

@@ -1,6 +1,6 @@
 import React,{useContext} from 'react'
 import { Grid,Row,Col } from 'rsuite'
-import { Dropdown } from 'react-bootstrap'
+import { Dropdown,Card,Button } from 'react-bootstrap'
 import {Store} from '../Context'
 import { Link } from 'react-router-dom'
 
@@ -49,23 +49,32 @@ const Cart = () => {
         <div className='cart_card-show'>
           <h5>Current Order</h5>
 
-          <Grid fluid>
-                <Row className="show-grid">
-                  {cartItems.map((item)=>(
+          {cartItems.map((item)=>(
+          <Card style={{ width: '100%',margin:'5px 0px' }} className='cart_card-design'>
+            <Card.Body>
+                <Row className="show-grid ">
                     <>
                      <Col md={6} lg={6} >
-                        <img src={item.image} style={{width:'40px'}}/>
+                        <img src={item.image} style={{width:'40px', height:'40px'}}/>
                     </Col>
-                    <Col md={12} lg={12}>
+                    <Col md={8} lg={8}>
                        <h5>{item.title}</h5>
                     </Col>
                     <Col md={6} lg={6}>
                         <p>${item.price}.00</p>
                     </Col>
+                    <Col md={4} lg={4}>
+                        <p className='cart_card-button'><i class="fa-solid fa-trash-can"></i></p>
+                    </Col>
                     </>
-                  ))}
                 </Row>
-            </Grid>
+            </Card.Body>
+          </Card>
+          ))}    
+        </div>
+
+        <div className='cart_footer'>
+            <Button>Go to Place Order</Button>
         </div>
       </div>
     </div>

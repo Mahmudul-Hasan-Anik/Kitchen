@@ -17,19 +17,12 @@ const SearchMenu = () => {
             <p style={{color:'gray'}}>Please Choose Your Favorite Food</p>
         </Col>
         <Col xs={12} inline>
-          <InputGroup inside style={{width: 300,marginBottom: 10}}>
-            <Input placeholder='Search'/>
-            <InputGroup.Button>
-                <FaSearch />
-            </InputGroup.Button>
+          <InputGroup inside style={{width: 400,marginBottom: 10}}>
+            <Input placeholder='Search' style={{padding:'15px'}}/>
           </InputGroup>
         </Col>
       </Row>
     </Grid>
-
-    <div className='menu_card'>
-        
-    </div>
     </div>
   )
 }

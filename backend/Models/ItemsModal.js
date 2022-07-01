@@ -14,8 +14,8 @@ const ItemSchema = mongoose.Schema({
         require: true
     },
     catagory:{
-        type: String,
-        require: true
+       type: mongoose.Schema.Types.ObjectId,
+       ref: 'Catagory'
     },
     image:{
         type: String,

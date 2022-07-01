@@ -6,6 +6,7 @@ const path = require('path')
 const bodyParser = require('body-parser')
 const AuthRouter = require('./Router/AuthRoutes');
 const ItemRouter = require('./Router/ItemRoutes');
+const catagoryRouter = require('./Router/CatagoryRoutes')
 const app = express()
 
 require('dotenv').config()
@@ -21,6 +22,7 @@ mongoose.connect(process.env.MONGO_URL).then(()=>{
 app.use("/upload", express.static(path.join(__dirname, "uploads"))); 
 app.use('/auth/api', AuthRouter)
 app.use('/menu/api', ItemRouter)
+app.use('/items/api', catagoryRouter)
 
 app.get('/', (req, res)=>{
   res.send('Hello World')

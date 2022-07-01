@@ -1,7 +1,6 @@
-import {Histroy, Home, ItemDetails, Login, Menu, Registration, Setting, Wallet} from './Pages/pages'
+import {Histroy, Home, ItemDetails, Login, Menu, Registration, Setting, Wallet,Dashboard} from './Pages/pages'
 import {BrowserRouter,Routes,Route,} from "react-router-dom";
 import SideMenu from './Components/SideMenu';
-import Dashboard from './Components/Dashboard';
 import Cart from './Components/Cart';
 //CSS
 import { ToastContainer } from 'react-toastify';
