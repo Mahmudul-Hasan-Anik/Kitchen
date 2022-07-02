@@ -77,14 +77,14 @@ const Menu = () => {
               <p>All</p>
             </li>
           {catagory.map((items)=>(
-            <li onClick={()=>handleCatagory(items._id)} className={ values[0].catagory === items._id ? 'active' : '' }>
+            <li onClick={()=>handleCatagory(items._id)}>
               <i class={items.catagoryIcon}></i>
               <p>{items.catagoryName}</p>
             </li>
           ))}
         </ul>
       </div>
-
+      {/* className={ values[0].catagory === items._id ? 'active' : '' } */}
 
       <Grid fluid>
       <Row className="show-grid home_item">
