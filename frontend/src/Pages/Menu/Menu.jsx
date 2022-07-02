@@ -6,6 +6,7 @@ import { HiShoppingCart } from "react-icons/hi";
 import { FaHeart } from "react-icons/fa";
 import axios from 'axios';
 import { Store } from '../../Context';
+import Layout from '../../Components/Layout';
 
 
 const Menu = () => {
@@ -67,12 +68,13 @@ const Menu = () => {
 
 
   return (
+    <Layout title='Menu'>
     <div className='main_content'>
       <SearchMenu/>
 
       <div className='mt-4 menu_item-show'>
         <ul>
-        <li onClick={handleAll} className="active">
+        <li onClick={handleAll} className="activeMenuCard">
               <i class='fa-solid fa-house'></i>
               <p>All</p>
             </li>
@@ -115,6 +117,7 @@ const Menu = () => {
       </Row>
     </Grid>
     </div>
+    </Layout>
   )
 }
 

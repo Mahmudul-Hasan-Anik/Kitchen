@@ -3,7 +3,12 @@ import Layout from '../../Components/Layout'
 
 const Setting = () => {
   return (
-      <div className='main_content'>Setting</div>
+      <Layout title='setting'>
+        <div className='main_content'>
+            jdkjkl
+        </div> 
+      </Layout>
+     
   )
 }
 

@@ -13,12 +13,15 @@ const SideMenu = () => {
 
   const {state, dispatch} = useContext(Store)
   const {user} = state
+  console.log(user)
 
   const handleLogout = ()=>{
     dispatch({type: 'USER_LOGOUT'})
-    localStorage.removeItem('user')
+    localStorage.removeItem('user') 
+  }
+
+  const handleLogin = ()=>{
     navigate('/login')
-    
   }
 
     return (  
@@ -43,9 +46,16 @@ const SideMenu = () => {
                 </li>
             </ul> 
             <div class="social_media">
-              <a href="#" onClick={handleLogout}>
-                <i class="fa-solid fa-arrow-right-from-bracket"></i>Sign Out
-              </a>
+              {user?
+                <span  onClick={handleLogout}>
+                  <i class="fa-solid fa-arrow-right-from-bracket"></i>Sign Out
+                </span>
+                :
+                <span onClick={handleLogin}>
+                  <i class="fa-solid fa-right-to-bracket"></i>Login
+                </span>
+               }
+              
             </div>
         </div>
       </div>

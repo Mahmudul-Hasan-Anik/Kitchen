@@ -42,11 +42,9 @@ ItemRouter.post('/items', upload.single('image'), (req, res)=>{
     const URL = req.protocol + '://' + req.get('host')
     const fileUrl = URL + "/upload/" + req.file.filename;
 
-    console.log(req.body)
-    console.log(req.file)
-
     const newItem = new Item({
         title: req.body.title,
+        stock: req.body.stock,
         price: req.body.price,
         description: req.body.description,
         catagory: req.body.catagory,

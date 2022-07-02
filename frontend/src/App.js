@@ -1,4 +1,4 @@
-import {Histroy, Home, ItemDetails, Login, Menu, Registration, Setting, Wallet,Dashboard} from './Pages/pages'
+import {Histroy, Home, ItemDetails, Login, Menu, Registration, Setting, Wallet,Dashboard,ShowCart} from './Pages/pages'
 import {BrowserRouter,Routes,Route,} from "react-router-dom";
 import SideMenu from './Components/SideMenu';
 import Cart from './Components/Cart';
@@ -24,8 +24,8 @@ function App() {
       draggable
       pauseOnHover
     />
-    <SideMenu/>
-    <Cart/> 
+    {/* <SideMenu/>
+    <Cart/>  */}
       <div>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -37,6 +37,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/registration" element={<Registration />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/showcart" element={<ShowCart />} />
         </Routes>
       </div>
      

@@ -6,6 +6,7 @@ import { HiShoppingCart } from "react-icons/hi";
 import { FaHeart } from "react-icons/fa";
 import { useContext } from 'react';
 import { Store } from '../../Context';
+import Layout from '../../Components/Layout';
 
 const Home = () => {
   const [values, setValues] = useState([])
@@ -36,6 +37,7 @@ const Home = () => {
   },[])
 
   return (
+    <Layout title='Home'>
     <Grid fluid>
       <Row className="show-grid main_content home_item">
         {values.map((item)=>(
@@ -64,6 +66,7 @@ const Home = () => {
         ))}
       </Row>
     </Grid>
+    </Layout>
   )
 }
 

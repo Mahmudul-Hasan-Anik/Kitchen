@@ -1,8 +1,11 @@
 import React from 'react'
+import Layout from '../../Components/Layout'
 
 const Histroy = () => {
   return (
-    <div className='main_content'>Histroy</div>
+    <Layout title='Histroy'>
+      <div className='main_content'>Histroy</div>
+    </Layout>
   )
 }
 

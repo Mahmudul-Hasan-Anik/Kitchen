@@ -30,10 +30,8 @@ const cartReducer = (state,action)=>{
         case 'ADD_CART_ITEMS':
               const newItem = action.payload
               const existing = state.cart.cartItems.find((item)=>item._id === newItem._id)
-              console.log(existing)
               const cartItems = existing ? state.cart.cartItems.map((item)=>item._id === existing._id ? newItem: item) : [...state.cart.cartItems, newItem]
-            
-              console.log(cartItems)
+
 
         localStorage.setItem('cartItems', JSON.stringify(cartItems))
         return {...state, cart: {...state.cart, cartItems}}

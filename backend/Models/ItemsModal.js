@@ -5,6 +5,10 @@ const ItemSchema = mongoose.Schema({
         type: String,
         require: true
     },
+    stock: {
+        type: String,
+        require: true
+    },
     price: {
         type: Number,
         require: true

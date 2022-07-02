@@ -1,8 +1,11 @@
 import React from 'react'
+import Layout from '../../Components/Layout'
 
 const Wallet = () => {
   return (
-    <div className='main_content'>Wallet</div>
+    <Layout title='wallet'>
+      <div className='main_content'>Wallet</div>
+    </Layout>
   )
 }
 

@@ -5,16 +5,20 @@ import {Store} from '../Context'
 import { Link } from 'react-router-dom'
 
 const Cart = () => {
-  const {state,state2} = useContext(Store)
+  const {state,state2,dispatch2} = useContext(Store)
   const {user} = state
   const {cart:{cartItems}} = state2
-
-  console.log(cartItems)
 
   const handleRemoveCart = (id)=>{
     console.log(id)
   }
 
+  const handleUpdateButton = (item, quantity)=>{
+    dispatch2({
+      type: 'ADD_CART_ITEMS',
+      payload: {...item, quantity}
+    })
+  }
 
   return (
     <div className='main_cart'>
@@ -60,21 +64,21 @@ const Cart = () => {
             <Card.Body>
                 <Row className="show-grid ">
                     <>
-                     <Col md={6} lg={6} >
+                     <Col md={5} lg={5} >
                         <img src={item.image} style={{width:'40px', height:'40px'}}/>
                     </Col>
                     <Col md={8} lg={8}>
                        <h5>{item.title}</h5>
                     </Col>
-                    <Col md={6} lg={6}>
+                    <Col md={8} lg={8}>
                         <p>${item.price}.00</p>
-                          <div className='cart_card_update-button'>
-                            <span variant='secondary' style={{width:'20px', height:'20px'}}>-</span>
-                            <span variant='secondary'>{item.quantity}</span>
-                            <span variant='secondary' style={{width:'20px', height:'20px'}}>+</span>
-                          </div>
+                          {/* <div className='cart_card_update-button'>
+                            <button onClick={()=>handleUpdateButton(item, item.quantity - 1)} disabled={item.quantity == 1}>-</button>
+                            <span >{item.quantity}</span>
+                            <button onClick={()=>handleUpdateButton(item, item.quantity + 1)} disabled={item.quantity == item.stock}>+</button>
+                          </div> */}
                     </Col>
-                    <Col md={4} lg={4}>
+                    <Col md={3} lg={3}>
                         <p className='cart_card-button'><i class="fa-solid fa-trash-can" onClick={()=>handleRemoveCart(item._id)}></i></p>
                     </Col>
                     </>
@@ -85,7 +89,9 @@ const Cart = () => {
         </div>
 
         <div className='cart_footer'>
-            <Button>Go to Place Order</Button>
+            <Link to='/showcart'>
+              <Button>Go to Place Order</Button>
+            </Link>
         </div>
       </div>
     </div>

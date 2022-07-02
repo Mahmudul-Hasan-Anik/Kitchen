@@ -5,6 +5,7 @@ import {Grid,Row,Col,IconButton,ButtonToolbar,Button} from 'rsuite'
 import InnerImageZoom from 'react-inner-image-zoom'
 import { useContext } from 'react'
 import { Store } from '../../Context'
+import Layout from '../../Components/Layout'
 
 
 const ItemDetails = () => {
@@ -12,7 +13,6 @@ const ItemDetails = () => {
     const [values, setValues] = useState([])
     const {state2, dispatch2} = useContext(Store)
 
-  console.log(state2)
     const handleCart = (item)=>{
         dispatch2({
             type: 'ADD_CART_ITEMS',
@@ -30,6 +30,7 @@ const ItemDetails = () => {
     },[])
 
   return (
+    <Layout title='item-details'>
     <div className='main_content'>
     <Grid fluid>
         <Row className="show-grid">
@@ -61,6 +62,7 @@ const ItemDetails = () => {
         </Row>
     </Grid>
     </div>
+    </Layout>
   )
 }
 

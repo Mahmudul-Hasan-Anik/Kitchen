@@ -2,6 +2,7 @@ import React,{ useState } from 'react'
 import {Form,Button,Row,Col,Tabs,Tab} from 'react-bootstrap'
 import axios from 'axios'
 import { useEffect } from 'react'
+import Layout from '../../Components/Layout'
 
 const Dashboard = () => {
   const [catName, setCatName] = useState('')
@@ -11,13 +12,14 @@ const Dashboard = () => {
 
   const [values, setValues] = useState({
     title: '',
+    stock:'',
     price: '',
     description: '',
     catagory:''
   })
 
   const [imageFile, setImageFile] = useState('')
-  const {title, price, description,catagory} = values
+  const {title,stock, price, description,catagory} = values
 
   const handleChange = (e)=>{
     setValues({...values, [e.target.name]: e.target.value})
@@ -29,6 +31,7 @@ const Dashboard = () => {
     const formData = new FormData();
 
     formData.append('title', title)
+    formData.append('stock', stock)
     formData.append('price', price)
     formData.append('description', description)
     formData.append('catagory', catagory)
@@ -59,6 +62,7 @@ const Dashboard = () => {
   },[])
 
   return (
+    <Layout title='Dashboard'>
     <div className='main_content'>
       <Tabs
       defaultActiveKey="product"
@@ -90,6 +94,12 @@ const Dashboard = () => {
             <Form.Group className="mb-3">
               <Form.Label>Title</Form.Label>
               <Form.Control type="text" placeholder="Enter Title" name='title' onChange={handleChange}/>
+            </Form.Group>
+          </Col>
+          <Col>
+            <Form.Group className="mb-3">
+              <Form.Label>Stock</Form.Label>
+              <Form.Control type="Number" placeholder="Enter Stock" name='stock' onChange={handleChange}/>
             </Form.Group>
           </Col>
           <Col>
@@ -138,6 +148,7 @@ const Dashboard = () => {
 
     </Tabs>
     </div>
+    </Layout>
   )
 }
 
