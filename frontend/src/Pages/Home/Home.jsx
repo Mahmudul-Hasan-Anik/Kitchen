@@ -7,6 +7,8 @@ import { FaHeart } from "react-icons/fa";
 import { useContext } from 'react';
 import { Store } from '../../Context';
 import Layout from '../../Components/Layout';
+import SearchMenu from '../../Components/SearchMenu';
+import Pagination from '../../Components/Pagination';
 
 const Home = () => {
   const [values, setValues] = useState([])
@@ -37,9 +39,11 @@ const Home = () => {
   },[])
 
   return (
-    <Layout title='Home'>
-    <Grid fluid>
-      <Row className="show-grid main_content home_item">
+    <Layout title='Home' className='main_content'>
+      {/* <SearchMenu product={values}/> */}
+      <Pagination/>
+    {/* <Grid fluid>
+      <Row className="show-grid  home_item">
         {values.map((item)=>(
           <Col sm={24} md={7} lg={7} className='item_card-design'>
           <Link to={item._id}>
@@ -65,7 +69,7 @@ const Home = () => {
       
         ))}
       </Row>
-    </Grid>
+    </Grid> */}
     </Layout>
   )
 }

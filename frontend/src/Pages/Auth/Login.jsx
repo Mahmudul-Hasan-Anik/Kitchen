@@ -53,7 +53,7 @@ const Login = () => {
   }
 
   return (
-    <div className='main_content'>
+    <div>
       <div className='auth_main'>
         <Container>
         <Row>

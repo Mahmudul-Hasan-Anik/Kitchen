@@ -10,10 +10,8 @@ const SideMenu = () => {
   const {pathname} = location
   const splitLocation = pathname.split("/");
 
-
   const {state, dispatch} = useContext(Store)
   const {user} = state
-  console.log(user)
 
   const handleLogout = ()=>{
     dispatch({type: 'USER_LOGOUT'})

@@ -89,5 +89,9 @@ ItemRouter.get('/items/catagory/:id', (req,res)=>{
 
 })
 
+ItemRouter.get('/items/search/:search', (req,res)=>{
+  console.log(req.params.search)
+})
+
 
 module.exports = ItemRouter

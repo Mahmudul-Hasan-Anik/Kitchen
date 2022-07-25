@@ -46,9 +46,9 @@ const ShowCart = () => {
                             <li>{item.title}</li>
                             <li>${item.price}.00</li>
                             <li >
-                             <div className='qnt-btn'>
+                             <div className='show_cart-btn'>
                                 <span>{item.quantity}</span>
-                                <div className='qnt-btn-btn'>
+                                <div className='show_cart-btn-btn'>
                                     <button onClick={()=>handleUpdate(item, item.quantity + 1)} disabled={item.quantity == item.stock}><i class="fa-solid fa-sort-up"></i></button>
                                     <button onClick={()=>handleUpdate(item, item.quantity - 1)} disabled={item.quantity == 1}><i class="fa-solid fa-caret-down"></i></button>
                                 </div>

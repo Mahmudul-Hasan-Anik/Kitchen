@@ -33,8 +33,15 @@ const cartReducer = (state,action)=>{
               const cartItems = existing ? state.cart.cartItems.map((item)=>item._id === existing._id ? newItem: item) : [...state.cart.cartItems, newItem]
 
 
-        localStorage.setItem('cartItems', JSON.stringify(cartItems))
-        return {...state, cart: {...state.cart, cartItems}}
+              localStorage.setItem('cartItems', JSON.stringify(cartItems))
+              return {...state, cart: {...state.cart, cartItems}}
+
+        case 'REMOVE_CART_ITEMS':
+              {
+                const cartItems = state.cart.cartItems.filter((items)=> items._id !== action.payload._id)
+                localStorage.setItem('cartItems', JSON.stringify(cartItems))
+                return {...state, cart: {...state.cart, cartItems}}
+              }
 
         default: return state
     }

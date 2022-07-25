@@ -1,16 +1,20 @@
 import React,{useContext} from 'react'
-import { Grid,Row,Col } from 'rsuite'
-import { Dropdown,Card,Button } from 'react-bootstrap'
+import {Dropdown,Card,Button } from 'react-bootstrap'
 import {Store} from '../Context'
 import { Link } from 'react-router-dom'
+import { Grid,Row,Col,ButtonToolbar } from 'rsuite'
+import PlusIcon from '@rsuite/icons/Plus';
 
 const Cart = () => {
   const {state,state2,dispatch2} = useContext(Store)
   const {user} = state
   const {cart:{cartItems}} = state2
 
-  const handleRemoveCart = (id)=>{
-    console.log(id)
+  const handleRemoveCart = (item)=>{
+    dispatch2({
+      type: 'REMOVE_CART_ITEMS',
+      payload: {...item}
+    })
   }
 
   const handleUpdateButton = (item, quantity)=>{
@@ -40,7 +44,7 @@ const Cart = () => {
                     <Col lg={6}>
                         <Dropdown>
                             <Dropdown.Toggle variant="secondary">
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                            <PlusIcon/>
                             </Dropdown.Toggle>
 
                             <Dropdown.Menu>
@@ -67,19 +71,14 @@ const Cart = () => {
                      <Col md={5} lg={5} >
                         <img src={item.image} style={{width:'40px', height:'40px'}}/>
                     </Col>
-                    <Col md={8} lg={8}>
+                    <Col md={16} lg={16}>
                        <h5>{item.title}</h5>
                     </Col>
-                    <Col md={8} lg={8}>
+                    {/* <Col md={8} lg={8}>
                         <p>${item.price}.00</p>
-                          {/* <div className='cart_card_update-button'>
-                            <button onClick={()=>handleUpdateButton(item, item.quantity - 1)} disabled={item.quantity == 1}>-</button>
-                            <span >{item.quantity}</span>
-                            <button onClick={()=>handleUpdateButton(item, item.quantity + 1)} disabled={item.quantity == item.stock}>+</button>
-                          </div> */}
-                    </Col>
+                    </Col> */}
                     <Col md={3} lg={3}>
-                        <p className='cart_card-button'><i class="fa-solid fa-trash-can" onClick={()=>handleRemoveCart(item._id)}></i></p>
+                        <p className='cart_card-button'><i class="fa-solid fa-trash-can" onClick={()=>handleRemoveCart(item)}></i></p>
                     </Col>
                     </>
                 </Row>
