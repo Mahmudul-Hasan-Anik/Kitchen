@@ -1,7 +1,5 @@
 import {Histroy, Home, ItemDetails, Login, Menu, Registration, Setting, Wallet,Dashboard,ShowCart} from './Pages/pages'
 import {BrowserRouter,Routes,Route,} from "react-router-dom";
-import SideMenu from './Components/SideMenu';
-import Cart from './Components/Cart';
 //CSS
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -9,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'rsuite/dist/rsuite.min.css';
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
 import './index.css';
+import SearchDataShow from './Components/Search/SearchDataShow';
 
 function App() {
   return (
@@ -24,8 +23,6 @@ function App() {
       draggable
       pauseOnHover
     />
-    {/* <SideMenu/>
-    <Cart/>  */}
       <div>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -38,6 +35,7 @@ function App() {
           <Route path="/registration" element={<Registration />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/showcart" element={<ShowCart />} />
+          <Route path="/search/:id" element={<SearchDataShow />} />
         </Routes>
       </div>
      

@@ -17,8 +17,7 @@ const ItemDetails = () => {
         dispatch2({
             type: 'ADD_CART_ITEMS',
             payload: item
-        })
-        
+        })  
     }
 
     useEffect(()=>{

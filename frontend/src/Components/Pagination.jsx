@@ -9,10 +9,10 @@ import { useContext } from 'react';
 import { Store } from '../Context';
 
 
-const Pagination = () => {
+const Pagination = (props) => {
   const [offset, setOffset] = useState(0);
   const [data, setData] = useState([]);
-  const [perPage] = useState(2);
+  const [perPage] = useState(3);
   const [pageCount, setPageCount] = useState(0)
   const {state2, dispatch2} = useContext(Store)
 
@@ -31,70 +31,55 @@ const Pagination = () => {
   }
 
   
-  const handleWish = ()=>{}
+const handleWish = ()=>{}
 
-  const getData = async() => {
+const getData = async() => {
+    //Call api for data
     const res = await axios.get(`/menu/api/items/all`)
     const data = res.data;
-
     const slice = data.slice(offset, offset + perPage)
-    
-    let postData 
-<>
-      <Grid fluid style={{width:'100%'}}>
-        <Row className="show-grid home_item ">
-          {postData = slice.map((item) => (
-            <Col sm={24} md={7} lg={7} className='item_card-design'>
-            <Link to={item._id}>
-              <img src={item.image} style={{width:'100%', height:'212px', borderRadius:'7px 7px 20px 20px'}}/>
-            </Link>
-            <div className='item_card-content'>
-              <h4>
-              <Link to={item._id}>{item.title}</Link>
-              </h4>
-              <p>{item.description}</p>
-            
-              <Row className='item_card-footer'>
-                <Col className='item_card-footer' md={12} lg={12}>
-                  <ButtonToolbar>
-                    <IconButton icon={ <HiShoppingCart/>} color="red" appearance="primary" onClick={()=>handleCart(item)} />
-                    <IconButton icon={ <FaHeart/>} color="green" appearance="primary"  onClick={()=>handleWish(item)}/>
-                  </ButtonToolbar>
-                </Col>
-                <Col md={12} lg={12}><p style={{textAlign:'end', margin:'25px 0px'}}>${item.price}.00</p></Col>
-              </Row>
-            </div>
-          </Col>
-        ))}
-        </Row>
-        </Grid>
-
-  </>
       
-      setData(postData)
-      setPageCount(Math.ceil(data.length / perPage))
+    setData(slice)
+    setPageCount(Math.ceil(data.length / perPage))
 }
 const handlePageClick = (e) => {
-  const selectedPage = e.selected;
-  setOffset(selectedPage + 1)
+    const selectedPage = e.selected;
+    setOffset(selectedPage + 1)
 };
 
 useEffect(() => {
- getData()
+   getData()
 }, [offset])
 
-
-
-
-
-
   return (
-  <>
- 
-       <div className='test'>
-       {data}
-       </div>
-
+    <>    
+      <Grid fluid style={{width:'100%'}}>
+      <Row className="show-grid home_item ">
+        {data.map((item) => (
+          <Col sm={24} md={7} lg={7} className='item_card-design'>
+          <Link to={item._id}>
+            <img src={item.image} style={{width:'100%', height:'212px', borderRadius:'7px 7px 20px 20px'}}/>
+          </Link>
+           <div className='item_card-content'>
+            <h4>
+            <Link to={item._id}>{item.title}</Link>
+            </h4>
+            <p>{item.description}</p>
+            
+            <Row className='item_card-footer'>
+              <Col className='item_card-footer' md={12} lg={12}>
+                <ButtonToolbar>
+                  <IconButton icon={ <HiShoppingCart/>} color="red" appearance="primary" onClick={()=>handleCart(item)} />
+                  <IconButton icon={ <FaHeart/>} color="green" appearance="primary"  onClick={()=>handleWish(item)}/>
+                </ButtonToolbar>
+              </Col>
+              <Col md={12} lg={12}><p style={{textAlign:'end', margin:'25px 0px'}}>${item.price}.00</p></Col>
+            </Row>
+          </div>
+        </Col>
+        ))}
+        </Row>
+      </Grid>
       
 
        <ReactPaginate
@@ -110,8 +95,7 @@ useEffect(() => {
           subContainerClassName={"pages pagination"}
           activeClassName={"active"}
         />
-  
-  </>
+    </>
   )
 }
 
